@@ -334,18 +334,19 @@ export default function ITSGWebsite() {
       {/* ═══ HERO MEJORADO ═══ */}
       <section id="hero">
         <div className="relative overflow-hidden" style={{ minHeight: "100vh", background: "#040a14" }}>
-          {/* Background image with Ken Burns zoom + pan */}
+          {/* Background video from Cloudinary */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute" style={{
-              inset: "0", width: "100%", height: "100%",
-              backgroundImage: `url(${IMG.hero})`,
-              backgroundSize: "contain",
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              animation: "kenBurns 28s ease-in-out infinite alternate",
-              willChange: "transform",
-              filter: "saturate(0.9) brightness(0.85)",
-            }} />
+            <video
+              autoPlay muted loop playsInline
+              className="absolute w-full h-full"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center center",
+                filter: "saturate(0.9) brightness(0.85)",
+              }}
+            >
+              <source src="https://res.cloudinary.com/dgq3gbcdv/video/upload/v1771366725/Hd_Hero_Baner_Itsg_Web_Site_aonoup.mp4" type="video/mp4" />
+            </video>
           </div>
           {/* Animated gradient overlay that "breathes" */}
           <div className="absolute inset-0" style={{
@@ -365,7 +366,6 @@ export default function ITSGWebsite() {
           }} />
           <HeroGrid />
           <style>{`
-            @keyframes kenBurns { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.1) translate(-1.5%,-1%); } }
             @keyframes overlayBreath { 0%,100% { opacity:1; } 50% { opacity:0.91; } }
             @keyframes lensFlare { 0% { transform: translate(0,0) scale(1); opacity:0.5; } 50% { transform: translate(25px,-12px) scale(1.15); opacity:0.75; } 100% { transform: translate(-8px,6px) scale(0.9); opacity:0.35; } }
           `}</style>
@@ -912,4 +912,3 @@ export default function ITSGWebsite() {
     </div>
   );
 }
-
